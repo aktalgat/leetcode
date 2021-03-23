@@ -1,5 +1,8 @@
 package io.talgat.easy;
 
+/**
+ * https://leetcode.com/problems/longest-common-prefix/
+ */
 public class LongestCommonPrefix {
     public static void main(String[] args) {
         LongestCommonPrefix lc = new LongestCommonPrefix();

@@ -1,5 +1,8 @@
 package io.talgat.medium;
 
+/**
+ * https://leetcode.com/problems/longest-palindromic-substring/
+ */
 public class LongestPalindromicSubstr {
 
     public static void main(String[] args) {

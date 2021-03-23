@@ -1,5 +1,8 @@
 package io.talgat.easy;
 
+/**
+ * https://leetcode.com/problems/largest-substring-between-two-equal-characters/
+ */
 public class LongestSubstrBetweenTwoEqChar {
     public static void main(String[] args) {
         LongestSubstrBetweenTwoEqChar ls = new LongestSubstrBetweenTwoEqChar();

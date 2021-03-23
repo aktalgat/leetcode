@@ -1,5 +1,8 @@
 package io.talgat.easy;
 
+/**
+ *
+ */
 public class DesignParkingSystem {
     public static void main(String[] args) {
         DesignParkingSystem dp = new DesignParkingSystem();

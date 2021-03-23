@@ -1,5 +1,8 @@
 package io.talgat.medium;
 
+/**
+ * https://leetcode.com/problems/zigzag-conversion/
+*/
 public class ZigZagConversation {
 
     public static void main(String[] args) {
