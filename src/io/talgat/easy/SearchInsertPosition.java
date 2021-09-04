@@ -24,26 +24,16 @@ public class SearchInsertPosition {
     }
 
     public int searchInsert(int[] nums, int target) {
-        int index = 0;
-        if (nums[0] - 1 == target) {
-            return 0;
-        }
-        if (nums[nums.length - 1] + 1 == target) {
-            return nums.length;
-        }
-
-        for (int i = 0; i < nums.length - 1; i++) {
+        for (int i = 0; i < nums.length; i++) {
             if (nums[i] == target) {
                 return i;
             }
-            if (nums[i] < target && nums[i + 1] > target) {
-                index = i + 1;
+            if (nums[i] > target) {
+                return i;
             }
         }
-        if (nums[nums.length - 1] >= target) {
-            return nums.length - 1;
-        }
-
-        return index;
+        return nums.length;
     }
+
+    //binary search
 }
