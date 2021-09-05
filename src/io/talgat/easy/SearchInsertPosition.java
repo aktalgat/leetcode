@@ -23,7 +23,7 @@ public class SearchInsertPosition {
         System.out.println("Result " + res5);
     }
 
-    public int searchInsert(int[] nums, int target) {
+    public int searchInsertN(int[] nums, int target) {
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] == target) {
                 return i;
@@ -35,5 +35,20 @@ public class SearchInsertPosition {
         return nums.length;
     }
 
-    //binary search
+    public int searchInsert(int[] nums, int target) {
+        int l = 0;
+        int r = nums.length - 1;
+        while (l <= r) {
+            int m = (l + r) / 2;
+            if (nums[m] == target) {
+                return m;
+            }
+            if (nums[m] < target) {
+                l = m + 1;
+            } else {
+                r = m - 1;
+            }
+        }
+        return r + 1;
+    }
 }
