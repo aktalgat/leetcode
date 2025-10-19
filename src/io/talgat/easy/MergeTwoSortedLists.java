@@ -11,29 +11,41 @@ public class MergeTwoSortedLists {
 
     }
 
-    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
         ListNode listNode = new ListNode(0);
         ListNode tail = listNode;
         while (true) {
-            if (l1 == null) {
-                tail.next = l2;
+            if (list1 == null) {
+                tail.next = list2;
                 break;
             }
-            if (l2 == null) {
-                tail.next = l1;
+            if (list2 == null) {
+                tail.next = list1;
                 break;
             }
-            if (l1.val <= l2.val) {
-                tail.next = l1;
-                l1 = l1.next;
+            if (list1.val <= list2.val) {
+                tail.next = list1;
+                list1 = list1.next;
             } else {
-                tail.next = l2;
-                l2 = l2.next;
+                tail.next = list2;
+                list2 = list2.next;
             }
             tail = tail.next;
         }
 
         return listNode.next;
+    }
+
+    public ListNode mergeTwoLists2(ListNode list1, ListNode list2) {
+        if (list1 == null) return list2;
+        if (list2 == null) return list1;
+        if (list1.val <= list2.val) {
+            list1.next = mergeTwoLists(list1.next, list2);
+            return list1;
+        } else {
+            list2.next = mergeTwoLists(list1, list2.next);
+            return list2;
+        }
     }
 
     private void test() {
