@@ -3,6 +3,9 @@ package io.talgat.easy;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * https://leetcode.com/problems/shift-2d-grid
+ */
 public class Shift2DGrid {
 
     public List<List<Integer>> shiftGrid(int[][] grid, int k) {
