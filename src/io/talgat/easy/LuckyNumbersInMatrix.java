@@ -3,6 +3,9 @@ package io.talgat.easy;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * https://leetcode.com/problems/lucky-numbers-in-a-matrix
+ */
 public class LuckyNumbersInMatrix {
 
     public List<Integer> luckyNumbers(int[][] matrix) {
