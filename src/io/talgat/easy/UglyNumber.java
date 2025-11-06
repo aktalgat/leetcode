@@ -12,7 +12,7 @@ public class UglyNumber {
     }
 
     public boolean isUgly(int n) {
-        if (n < 0) return false;
+        if (n <= 0) return false;
         if (n == 1) return true;
         int r = n;
         while (r % 2 == 0) {
