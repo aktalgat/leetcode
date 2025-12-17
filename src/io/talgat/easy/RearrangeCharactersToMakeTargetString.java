@@ -1,0 +1,25 @@
+package io.talgat.easy;
+
+/**
+ * https://leetcode.com/problems/rearrange-characters-to-make-target-string
+ */
+public class RearrangeCharactersToMakeTargetString {
+
+    public int rearrangeCharacters(String s, String target) {
+        int[] countS = new int[26];
+        int[] countT = new int[26];
+        for (char c : s.toCharArray()) {
+            countS[c - 'a']++;
+        }
+        for (char c : target.toCharArray()) {
+            countT[c - 'a']++;
+        }
+        int result = Integer.MAX_VALUE;
+        for (int i = 0; i < 26; i++) {
+            if (countT[i] > 0) {
+                result = Math.min(result, countS[i] / countT[i]);
+            }
+        }
+        return result;
+    }
+}
