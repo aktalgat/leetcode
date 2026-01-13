@@ -10,25 +10,25 @@ public class Permutations {
 
     public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
-        byte[] used = new byte[nums.length];
-        backtrack(0, nums, used, new ArrayList<>(), result);
+        boolean[] used = new boolean[nums.length];
+        backtrack(nums, used, new ArrayList<>(), result);
         return result;
     }
 
-    private void backtrack(int start, int[] nums, byte[] used, List<Integer> path, List<List<Integer>> result) {
+    private void backtrack(int[] nums, boolean[] used, List<Integer> path, List<List<Integer>> result) {
         if (path.size() == nums.length) {
             result.add(new ArrayList<>(path));
             return;
         }
         for (int i = 0; i < nums.length; i++) {
-            if (used[i] == 1) {
+            if (used[i]) {
                 continue;
             }
-            used[i] = 1;
+            used[i] = true;
             path.add(nums[i]);
-            backtrack(i, nums, used, path, result);
+            backtrack(nums, used, path, result);
             path.removeLast();
-            used[i] = 0;
+            used[i] = false;
         }
     }
 }
