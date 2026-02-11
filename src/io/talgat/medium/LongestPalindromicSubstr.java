@@ -7,11 +7,11 @@ public class LongestPalindromicSubstr {
 
     public static void main(String[] args) {
         LongestPalindromicSubstr ls = new LongestPalindromicSubstr();
-        String s = "bababd";
-        String isPal = ls.longestPalindrome(s);
+        String s = "bababdhhhhhhfffff";
+        String isPal = ls.longestPalindrome1(s);
         System.out.println(isPal);
         String s1 = "cbbd";
-        String res = ls.longestPalindrome(s1);
+        String res = ls.longestPalindrome1(s1);
         System.out.println(res);
     }
 
@@ -37,5 +37,31 @@ public class LongestPalindromicSubstr {
             }
         }
         return ans;
+    }
+
+    public String longestPalindrome1(String s) {
+        if (s == null || s.isEmpty()) {
+            return s;
+        }
+        String max = "";
+        for (int i = 0; i < s.length(); i++) {
+            String len1 = extractAroundCenter(s, i, i);
+            if (len1.length() > max.length()) {
+                max = len1;
+            }
+            String len2 = extractAroundCenter(s, i, i + 1);
+            if (len2.length() > max.length()) {
+                max = len2;
+            }
+        }
+        return max;
+    }
+
+    private String extractAroundCenter(String s, int left, int right) {
+        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+            left--;
+            right++;
+        }
+        return s.substring(left + 1, right);
     }
 }
