@@ -1,0 +1,22 @@
+package io.talgat.medium;
+
+/**
+ * https://leetcode.com/problems/unique-binary-search-trees
+ */
+public class UniqueBinarySearchTrees {
+
+    public int numTrees(int n) {
+        int[] dp = new int[n + 1];
+        dp[0] = 1;
+        dp[1] = 1;
+        for (int nodes = 2; nodes <= n; nodes++) {
+            dp[nodes] = 0;
+            for (int root = 1; root <= nodes; root++) {
+                int left = root - 1;
+                int right = nodes - root;
+                dp[nodes] += dp[left] * dp[right];
+            }
+        }
+        return dp[n];
+    }
+}
